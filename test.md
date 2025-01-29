@@ -35,6 +35,17 @@ To establish an SSH connection with the Duckiebot, use the following command:
 ssh duckie@csc22919.local
 ```
 
+### Viewing the Image Stream on Your Laptop
+To stream the Duckiebot's camera feed on your laptop, use the following command:
+```
+dts start_gui_tools csc22919
+```
+Then, run:
+```
+rqt_image_view
+```
+This will allow you to visualize the live image stream from the Duckiebot's camera.
+
 ### Shutting Down the Duckiebot
 To safely turn off the Duckiebot, run the following command:
 ```
@@ -45,22 +56,3 @@ dts duckiebot shutdown csc22919
 
 ## Repository Structure
 Each exercise is organized into a dedicated folder to facilitate navigation and execution of specific tasks. The structure ensures modularity and ease of development.
-
-For further details or troubleshooting, please refer to the documentation included in each exercise folder.
-
----
-
-## Website
-For additional resources and project updates, please visit our website:
-[Project Website](http://csc22919.local/)
-
----
-
-## License
-This project is shared between **Tina Nguyen** and **Haran Song**. Please contact us for any inquiries regarding usage or contributions.
-
----
-
-## Acknowledgments
-We would like to thank the **CMPUT 412** course instructors and teaching staff for their guidance and support in developing this project.
-

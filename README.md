@@ -27,6 +27,17 @@ dts fleet discover
 ```
 Once the status indicates "ready" the Duckiebot is prepared for maneuvering.
 
+### Viewing the Image Stream on Your Laptop
+To see the Duckiebot's camera feed on your laptop, use the following command:
+```
+dts start_gui_tools csc22919
+```
+Then, run:
+```
+rqt_image_view
+```
+This will allow you to visualize the live image stream from the Duckiebot's camera.
+
 
 ### Accessing the Duckiebot Dashboard
 Once the Duckiebot is powered on, you can access its dashboard through a web browser using the following URL:

@@ -25,7 +25,7 @@ To verify that the Duckiebot is powered on and ready, run the following command:
 ```
 dts fleet discover
 ```
-Once the status indicates "ready," the Duckiebot is prepared for maneuvering.
+Once the status indicates "ready" the Duckiebot is prepared for maneuvering.
 
 
 ### Accessing the Duckiebot Dashboard

@@ -7,7 +7,7 @@ This project was developed by **Tina Nguyen** and **Haran Song**, who share equa
 
 ## Website
 For additional resources and project updates, please visit our website:
-[Project Website](https://tina-nguyen3004.github.io/duckieLabs/)
+[Tina's Website](https://tina-nguyen3004.github.io/duckieLabs/)
 
 ---
 

@@ -5,6 +5,10 @@ This repository contains our lab exercises code developed for CMPUT 412, where w
 ## Authors
 This project was developed by **Tina Nguyen** and **Haran Song**, who share equal ownership of the code and have collaborated to build this implementation.
 
+## Website
+For additional resources and project updates, please visit our website:
+[Project Website](https://tina-nguyen3004.github.io/duckieLabs/)
+
 ---
 
 ## Connecting to the Duckiebot
@@ -46,12 +50,6 @@ dts duckiebot shutdown csc22919
 
 ## Repository Structure
 Each exercise is organized into a dedicated folder to facilitate navigation and execution of specific tasks. The structure ensures modularity and ease of development.
-
----
-
-## Website
-For additional resources and project updates, please visit our website:
-[Project Website](https://tina-nguyen3004.github.io/duckieLabs/)
 
 ---
 

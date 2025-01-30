@@ -118,7 +118,7 @@ CMPUT412/
 │   ├── hello_world/
 │   ├── color_detector/
 │   ├── ...
-│── exercise1/
+│── ...
 │── LICENSE
 │── README.md
 ```

@@ -1,35 +1,23 @@
-FROM duckietown/dt-duckiebot-interface:daffy-arm32v7 
-# # use daffy-arm64v8 if you are using a Duckiebot MOOC Founder's Edition
+FROM duckietown/dt-duckiebot-interface:daffy-arm64v8
+# ^ This is the correct base image for Duckiebot MOOC Founder's Edition (ARM64).
 
-# WORKDIR /color_detector_dir
-
-# COPY requirements.txt ./
-
-# RUN pip install -r requirements.txt
-
-# COPY color_detector.py .
-
-# CMD python3 ./color_detector.py
-
-# Use a base image with Python
-FROM python:3.12
+# Optionally fix the GPG key issue if you ever need apt-get inside the container:
+# RUN apt-get update && apt-get install -y curl gnupg2 && \
+#     curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add - && \
+#     apt-get update && apt-get install -y libgl1-mesa-glx && \
+#     rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /color_detector_dir
 
-# Install required system dependencies
-RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy the project files
+# Copy your entire project into the container (includes color_detector.py and requirements.txt)
 COPY . .
 
-# Install dependencies from requirements.txt
+# Install Python dependencies (assuming the base image already has Python and pip)
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set environment variable (optional)
+# (Optional) Set an environment variable
 ENV N_SPLITS=1
 
-# Run the script when the container starts
+# Define the default command to run when the container starts
 CMD ["python3", "color_detector.py"]

@@ -99,6 +99,11 @@ We have included a Docker program `hello_world` in this repository. To use it, f
    docker -H csc22919.local run -it --rm --net=host duckietown/hello_world:v3-arm32v7
    ```
 
+### Run the color_detector
+build: `docker -H tcp://192.168.1.108:2375 build -t colordetector .`
+
+docker -H csc22919.local run -it --privileged -v /tmp/argus_socket:/tmp/argus_socket colordetector
+
 ---
 
 ## **Shutting Down the Duckiebot**

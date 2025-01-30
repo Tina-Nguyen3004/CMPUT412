@@ -73,8 +73,6 @@ while True:
         print("Failed to capture image")
         break
     #cv2.imshow("Color Detector", frame)
-
-    
     height, width = frame.shape[:2]
     sector_height = height // N_SPLITS
     for i in range(N_SPLITS):

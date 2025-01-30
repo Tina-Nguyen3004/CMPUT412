@@ -67,7 +67,7 @@ def detect_dominant(sector):
 # cap = cv2.VideoCapture()
 # cap.open(gst_pipeline_string(), cv2.CAP_GSTREAMER)
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture("bus.mp4")  # Replace with a video file
 cap.open(gst_pipeline_string(), cv2.CAP_GSTREAMER)
 while True:
     ret, frame = cap.read()  # Capture frame

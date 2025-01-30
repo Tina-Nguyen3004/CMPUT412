@@ -47,6 +47,7 @@ To establish an SSH connection:
 ```bash
 ssh duckie@csc22919.local
 ```
+The default password is `quackquack`
 
 ### **Interacting with ROS Topics**
 To view a list of published topics:

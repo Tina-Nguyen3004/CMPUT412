@@ -17,6 +17,11 @@ FROM python:3.8
 # Set the working directory
 WORKDIR /app
 
+# Install required system dependencies
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copy the project files
 COPY . .
 

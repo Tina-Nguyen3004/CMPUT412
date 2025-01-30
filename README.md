@@ -1,68 +1,129 @@
 # CMPUT 412 - Duckiebot Autonomous Control
 
-This repository contains our lab exercises code developed for CMPUT 412, where we implemented autonomous control for our Duckiebot. The project includes step-by-step instructions for utilizing the Duckiebot safely and effectively. Each exercise is organized into separate folders for clarity and ease of use.
+This repository contains the lab exercises and implementations for **CMPUT 412**, where we developed autonomous control solutions for the Duckiebot. The project focuses on structured exercises that enhance the safe and effective utilization of the Duckiebot for autonomous navigation and control.
 
-## Authors
-This project was developed by **Tina Nguyen** and **Haran Song**, who share equal ownership of the code and have collaborated to build this implementation.
+## **Authors**
+This project was collaboratively developed by **Tina Nguyen** and **Haran Song**, who share equal ownership and contributions to the implementation.
 
-## Website
-For additional resources and project updates, please visit our website:
-[Tina's Website](https://tina-nguyen3004.github.io/duckieLabs/)
+## **Project Website**
+For additional resources, documentation, and project updates, visit:
+**[Tina's Duckiebot Labs](https://tina-nguyen3004.github.io/duckieLabs/)**
 
 ---
 
-## Connecting to the Duckiebot
-### Identifying the Duckiebot
-The Duckiebot available on the network is identified by the name: **`csc22919`**.
+## **Connecting to the Duckiebot**
 
-### Powering On the Duckiebot
-To safely power on the Duckiebot, follow these steps:
+### **Identifying the Duckiebot**
+The Duckiebot on the network is identified as:
+**`csc22919`**
+
+### **Powering On the Duckiebot**
+To safely power on the Duckiebot:
 1. Press the battery button once.
-2. Wait for the Duckiebot's LEDs, the on-board computer LED, the fan, and other components to turn on fully.
+2. Wait for the Duckiebot’s LEDs, onboard computer LED, fan, and other components to fully initialize.
 
-### Checking if the Duckiebot is On
-To verify that the Duckiebot is powered on and ready, run the following command:
-```
+### **Checking the Duckiebot’s Status**
+To confirm the Duckiebot is powered on and ready, run:
+```bash
 dts fleet discover
 ```
-Once the status indicates "ready" the Duckiebot is prepared for maneuvering.
+When the status shows "ready," the Duckiebot is fully operational.
 
-### Viewing the Image Stream on Your Laptop
-To see the Duckiebot's camera feed on your laptop, use the following command:
-```
+### **Accessing the Duckiebot’s Camera Stream on Your Laptop**
+To visualize the live image stream from the Duckiebot's camera:
+```bash
 dts start_gui_tools csc22919
-```
-Then, run:
-```
 rqt_image_view
 ```
-This will allow you to visualize the live image stream from the Duckiebot's camera.
 
-
-### Accessing the Duckiebot Dashboard
-Once the Duckiebot is powered on, you can access its dashboard through a web browser using the following URL:
+### **Accessing the Duckiebot Dashboard**
+Once powered on, access the Duckiebot’s dashboard via a web browser at:
 ```
 http://csc22919.local/
 ```
 
-### Connecting via SSH
-To establish an SSH connection with the Duckiebot, use the following command:
-```
+### **Connecting to the Duckiebot via SSH**
+To establish an SSH connection:
+```bash
 ssh duckie@csc22919.local
 ```
 
-### Shutting Down the Duckiebot
-To safely turn off the Duckiebot, run the following command:
+### **Interacting with ROS Topics**
+To view a list of published topics:
+```bash
+rostopic list
 ```
+To check the publishing frequency of a topic:
+```bash
+rostopic hz /csc22919/camera_node/image/compressed
+```
+To display real-time messages from a topic:
+```bash
+rostopic echo /csc22919/camera_node/image/compressed
+```
+
+### **Calibrating the Duckiebot’s Wheels**
+To adjust wheel calibration:
+```bash
+rosparam set csc22919/kinematics_node/trim -0.01325
+```
+
+---
+
+## **Running a Docker Program**
+We have included a Docker program `hello_world` in this repository. To use it, follow these steps:
+
+1. Navigate to the `hello_world` folder within this repository.
+
+### **On a Local Machine**
+2. Build the Docker image:
+   ```bash
+   dts devel build -f
+   ```
+3. Run the container:
+   ```bash
+   dts devel run
+   ```
+
+### **On the Duckiebot**
+2. Ensure the Duckiebot is accessible:
+   ```bash
+   ping csc22919.local
+   ```
+3. Build the image for the Duckiebot’s architecture:
+   ```bash
+   dts devel build -f --arch arm32v7 -H csc22919.local
+   ```
+4. Run the container on the Duckiebot:
+   ```bash
+   docker -H csc22919.local run -it --rm --net=host duckietown/hello_world:v3-arm32v7
+   ```
+
+---
+
+## **Shutting Down the Duckiebot**
+To safely power off the Duckiebot:
+```bash
 dts duckiebot shutdown csc22919
 ```
 
 ---
 
-## Repository Structure
-Each exercise is organized into a dedicated folder to facilitate navigation and execution of specific tasks. The structure ensures modularity and ease of development.
+## **Repository Structure**
+This repository is structured to ensure clarity and modularity. Each exercise is contained within a dedicated folder for easy navigation and execution of specific tasks.
+
+```
+CMPUT412/
+│── exercise1/
+│   ├── hello_world/
+│   ├── color_detector/
+│   ├── ...
+│── exercise1/
+│── LICENSE
+│── README.md
+```
 
 ---
 
-## Acknowledgments
-We would like to thank the **CMPUT 412** course instructors and teaching staff for their guidance and support in developing this project.
+## **Acknowledgments**
+We extend our gratitude to the **CMPUT 412** course instructors and teaching staff for their guidance and support throughout this project.

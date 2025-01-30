@@ -1,12 +1,30 @@
-FROM duckietown/dt-duckiebot-interface:daffy-arm32v7 
-# use daffy-arm64v8 if you are using a Duckiebot MOOC Founder's Edition
+# FROM duckietown/dt-duckiebot-interface:daffy-arm32v7 
+# # use daffy-arm64v8 if you are using a Duckiebot MOOC Founder's Edition
 
-WORKDIR /color_detector_dir
+# WORKDIR /color_detector_dir
 
-COPY requirements.txt ./
+# COPY requirements.txt ./
 
-RUN pip install -r requirements.txt
+# RUN pip install -r requirements.txt
 
-COPY color_detector.py .
+# COPY color_detector.py .
 
-CMD python3 ./color_detector.py
+# CMD python3 ./color_detector.py
+
+# Use a base image with Python
+FROM python:3.8
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the project files
+COPY . .
+
+# Install dependencies from requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Set environment variable (optional)
+ENV N_SPLITS=3
+
+# Run the script when the container starts
+CMD ["python3", "color_detector.py"]
